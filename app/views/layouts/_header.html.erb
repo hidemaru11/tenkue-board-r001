@@ -10,7 +10,7 @@
         <span>ユーザー名 さん</span>
       </li>
       <li class="header__bar__user_nav__btn">
-        ログアウト
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
       <li class="header__bar__user_nav__btn">
         投稿する
@@ -21,10 +21,9 @@
         <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
       </li>
       <li class="header__bar__user_nav__btn">
-        ログイン
-      </li>
+        <%= link_to 'ログイン', new_user_session_path %>
       <li class="header__bar__user_nav__btn">
-        新規登録
+        <%= link_to '新規登録', new_user_registration_path %>
       </li>
     </ul>
   </div>
