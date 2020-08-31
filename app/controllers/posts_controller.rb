@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
+  
   def index
     @posts = Post.all
   end
@@ -17,6 +17,26 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+  
+  def destroy
+    @post.destroy
+    flash[:notice] = "削除しました"
+    redirect_to root_path
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+       flash[:notice] = "編集しました"
+       redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def show
