@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -65,5 +66,6 @@ gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'data-confirm-modal'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'rails-i18n'
 gem 'devise-i18n'

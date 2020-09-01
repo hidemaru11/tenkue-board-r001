@@ -9,4 +9,9 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   resources :posts
+  resources :posts do
+    post 'add' => 'likes#create'
+    delete '/add' => 'likes#destroy'
+  end
+
 end

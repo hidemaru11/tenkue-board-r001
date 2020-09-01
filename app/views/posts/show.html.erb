@@ -27,11 +27,9 @@
             <li>
               <i class="far fa-comment-alt"></i><span>#</span>
             </li>
-            <li>
-              <%= link_to "#", { class: "post_action_btn" } do %>
-                <i class="far fa-heart"></i><span>#</span>
-              <% end %>
-            </li>
+            <!-- <li class="post_action_btn" id="like-btn-<%= @post.id %>">
+              　<%= render 'likes/like', post: @post %>
+            </li> -->
           </ul>
           <div class="post_detail__bottom_box__admin_actions">
             <% if current_user.id == @post.user.id %>
