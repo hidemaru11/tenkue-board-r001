@@ -3,13 +3,17 @@ class LikesController < ApplicationController
   before_action :set_like
 
   def create
-    post = Post.find(params[:post_id])
-    current_user.likes.create(post_id: post.id)
+    unless @post.id == current_user.id
+      post = Post.find(params[:post_id])
+      current_user.likes.create(post_id: post.id)
+    end
   end
 
   def destroy
-    post = Post.find(params[:post_id])
-    current_user.likes.find_by(post_id: post.id).delete
+    unless @post.id == current_user.id
+      post = Post.find(params[:post_id])
+      current_user.likes.find_by(post_id: post.id).delete
+    end
   end
 
   private
