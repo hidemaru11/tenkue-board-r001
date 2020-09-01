@@ -16,6 +16,7 @@
         <div class="<%= message_type %>"><%= message %></div>
       <% end %>
     </div>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <div class="wrapper">
       <%= yield %>
     </div>
