@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
   
   def index
-    @posts = Post.all
+    @posts = Post.all.includes_user.sorted_desc
   end
 
   def new
