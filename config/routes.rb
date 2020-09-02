@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   resources :posts do
-    post 'add' => 'likes#create'
-    delete '/add' => 'likes#destroy'
+    resource :likes, only: [:create, :destroy]
+    # post 'add' => 'likes#create'
+    # delete '/add' => 'likes#destroy'
   end
 
 end
