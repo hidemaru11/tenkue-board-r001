@@ -34,7 +34,7 @@
             </li>
           </ul>
           <div class="post_detail__bottom_box__admin_actions">
-            <% if current_user && current_user.id == @post.user.id %>
+            <% if user_signed_in? && current_user.id == @post.user.id %>
               <%= link_to "編集", edit_post_path(@post) %>
               <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '本当に削除して良いですか？', cancel: 'やめる', title: '削除確認', disable_with: '処理中...' } %>
             <% end %>
