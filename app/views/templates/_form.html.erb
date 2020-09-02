@@ -1,0 +1,13 @@
+<%= form_with model: @post, local: true do |f| %>
+  <div class="form_area">
+  <%= render 'layouts/error_messages', model: f.object %>
+    <div class="form_area__field">
+      <%= f.text_area :content, rows: 10, autofocus: true, autocomplete: "content", placeholder: "投稿内容を入力" %>
+    </div>
+  </div>
+  <div class="form_area">
+    <div class="form_area__action">
+      <%= f.submit "投稿", class: "form_area__action__btn" %>
+    </div>
+  </div>
+<% end %>
