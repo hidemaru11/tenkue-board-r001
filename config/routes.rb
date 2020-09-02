@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   root 'posts#index'
-  resources :posts
   resources :posts do
     post 'add' => 'likes#create'
     delete '/add' => 'likes#destroy'
