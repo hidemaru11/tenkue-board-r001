@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   end
   
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "削除しました"
     redirect_to root_path
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
        flash[:notice] = "編集しました"
-       redirect_to root_path
+       redirect_to post_path
     else
       render :edit
     end
