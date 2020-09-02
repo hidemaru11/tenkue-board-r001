@@ -1,0 +1,46 @@
+<div class="post_wrapper">
+  <div class="post_wrapper__header">
+    <span><h3>投稿詳細</h3></span>
+    <div class="back_link">
+      <%= link_to root_path do %>
+        <i class="fas fa-angle-double-left"></i> <span>一覧へ戻る</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="post_wrapper__content scroll">
+    <div class="post_wrapper__content__post_show">
+      <div class="post_detail">
+        <div class="post_detail__top_box">
+          <div class="post_detail__top_box__name">
+            <span>投稿者 : <%= @post.user.name %></span>
+          </div>
+          <div class="post_detail__top_box__name">
+            <span>投稿日時 : <%= default_time(@post.created_at) %></span>
+          </div>
+        </div>
+        <div class="post_detail__middle_box">
+          <span><%= @post.content %></span>
+        </div>
+        <div class="post_detail__bottom_box">
+          <ul class="post_detail__bottom_box__user_actions">
+            <li>
+              <i class="far fa-comment-alt"></i><span>#</span>
+            </li>
+            <li>
+              <%= link_to "#", { class: "post_action_btn" } do %>
+                <i class="far fa-heart"></i><span>#</span>
+              <% end %>
+            </li>
+          </ul>
+          <div class="post_detail__bottom_box__admin_actions">
+            <% if user_signed_in? && current_user.id == @post.user.id %>
+              <%= link_to "編集", edit_post_path(@post) %>
+              <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '本当に削除して良いですか？', cancel: 'やめる', title: '削除確認', disable_with: '処理中...' } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
