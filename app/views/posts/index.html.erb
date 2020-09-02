@@ -18,7 +18,7 @@
                   <div class="post__top_box__time">
                     <span>投稿日時：<%= default_time(post.created_at) %></span>
                   </div>
-                </div>  
+                </div>
                 <div class="post__middle_box">
                   <span><%= post.content %></span>
                 </div>
@@ -29,10 +29,9 @@
                     <i class="far fa-comment-alt"></i>
                     <span>#</span>
                   </li>
-                  <li>
-                    <i class="far fa-heart"></i>
-                    <span>#</span>
-                  </li>
+
+                  <%= render 'likes/like', post: post %>
+
                 </ul>
                 <ul class="post__bottom_box__admin_actions">
                   <% if user_signed_in? && current_user.id == post.user.id %>
