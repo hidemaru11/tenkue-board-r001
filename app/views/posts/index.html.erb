@@ -18,7 +18,7 @@
                   <div class="post__top_box__time">
                     <span>投稿日時：<%= default_time(post.created_at) %></span>
                   </div>
-                </div>  
+                </div>
                 <div class="post__middle_box">
                   <span><%= post.content %></span>
                 </div>
@@ -27,7 +27,7 @@
                 <ul class="post__bottom_box__user_actions">
                   <li>
                     <i class="far fa-comment-alt"></i>
-                    <span>#</span>
+                    <span><%= comments_presence?(post.comments.count) %></span>
                   </li>
                   <li>
                     <i class="far fa-heart"></i>

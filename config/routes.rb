@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   end
 
   root 'posts#index'
-  resources :posts
+  resources :posts do
+    resource :comments, only: [:new, :create, :destroy]
+  end
+
 end
