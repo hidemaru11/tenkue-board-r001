@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   resources :posts do
-    resource :likes, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
 
 end
