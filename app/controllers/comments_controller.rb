@@ -5,13 +5,13 @@ class CommentsController < ApplicationController
  end
 
  def create
-   @comment = Comment.create(comment_params)
+   @comment = Comment.new(comment_params)
    @post = Post.find_by(id: params[:comment][:post_id])
    if @comment.save
-     redirect_to "/posts/#{@post.id}"
+     redirect_to post_path(@post)
    else
      flash[:alert] = "コメントを(140文字以内で)入力してください。"
-     redirect_to @post
+     render "posts/show"
    end
  end
 
