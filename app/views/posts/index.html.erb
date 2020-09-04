@@ -27,7 +27,7 @@
                 <ul class="post__bottom_box__user_actions">
                   <li>
                     <i class="far fa-comment-alt"></i>
-                    <span>#</span>
+                    <span><%= comments_presence?(post.comments.count) %></span>
                   </li>
 
                   <%= render 'likes/like', post: post %>
