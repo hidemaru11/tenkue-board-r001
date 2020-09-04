@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   end
 
   root 'posts#index'
-  resources :posts
+  resources :posts do
+    resources :comments, except: [:show]
+  end
+
 end
