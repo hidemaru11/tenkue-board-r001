@@ -52,8 +52,8 @@
             </div>
             <div class="comment_area__list__comment__right_box">
               <div class="comment_area__list__comment__right_box__info">
-                <span>編集</span>
-                <span>削除</span>
+                  <span>編集</span>
+                  <span>削除</span>
                 <span>投稿日時：<%= default_time(comment.created_at) %></span>
               </div>
               <div class="comment_area__list__comment__right_box__text">
@@ -63,24 +63,7 @@
           </li>
         </ul>
       <% end %>
-
-      <% if user_signed_in? %>
-        <div class="comment_area__form_box">
-          <%= form_with model: [@post, @comment], local: true, class:"comment_area__form_box__form" do |f| %>
-            <div class="comment_area__form_box__form__field">
-              <%= f.text_area :comment, placeholder: "コメントを入力" %>
-            </div>
-            <div class="comment_area__form_box__form__hidden_field">
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.hidden_field :post_id, :value => @post.id %>
-            </div>
-            <div class="comment_area__form_box__form__action">
-              <%= f.submit value:"送信", class: "comment_area__form_box__form__action__btn", data: { disable_with: "送信" } %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-
+      <%= render 'layouts/comment_form' %>
     </div>
   </div>
 </div>

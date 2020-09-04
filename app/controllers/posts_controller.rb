@@ -40,7 +40,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @comment = Comment.new
   end
 
@@ -55,7 +54,7 @@ class PostsController < ApplicationController
 
   def correct_user
     set_post
-    if current_user.id = @post.user.id
+    if current_user.id != @post.user.id
       flash[:notice] = "権限はありません"
       redirect_to root_path
     end
