@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   # モデルの関連定義
   belongs_to :user
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   # バリデーション
   validates :content, presence: true, length: { maximum: 140 }
