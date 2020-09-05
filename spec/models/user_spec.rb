@@ -60,4 +60,10 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  it "userが削除されれば、postも削除される" do
+    user = create(:user)
+    user.posts.create(content: "test_post")
+    expect{ user.destroy }.to change{ Post.count }.by(-1)
+  end
 end
