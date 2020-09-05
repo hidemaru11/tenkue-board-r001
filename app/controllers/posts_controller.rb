@@ -20,7 +20,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     @post.destroy
     flash[:notice] = "削除しました"
@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   private

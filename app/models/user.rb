@@ -9,6 +9,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
   validates :email, presence: true,
             format: { with: VALID_EMAIL_REGEX }
+  has_many :comments, dependent: :destroy
+
   def self.guest
     user = User.find_or_create_by!(email: 'guest@example.com', name: 'ゲストユーザ') do |user|
       user.password = SecureRandom.urlsafe_base64
