@@ -1,18 +1,27 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_post
+  before_action :log_in_user?
 
   def create
     current_user.likes.create(post_id: @post.id)
   end
 
   def destroy
-    current_user.likes.find_by(post_id: @post.id).delete
+    current_user.likes.find_by(post_id: @post.id,id: params[:id]).delete
   end
 
   private
+
+    # 押したいいねボタンを所有している投稿のidを取得
     def set_post
       @post = Post.find(params[:post_id])
+    end
+
+    def log_in_user?
+      unless user_signed_in?
+        flash[:alert] = "新規登録もしくはユーザーログインを行ってください"
+        redirect_back(fallback_location: root_path)
+      end
     end
 
 end
