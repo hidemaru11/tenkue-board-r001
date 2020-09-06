@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = Comment.find_by(post_id: @post.id, id: params[:id])
+    render "posts/show"
   end
 
   def update
