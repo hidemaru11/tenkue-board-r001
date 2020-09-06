@@ -40,6 +40,7 @@ gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6.0'
   gem "factory_bot_rails", "~> 4.10.0"
@@ -73,5 +74,6 @@ gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'data-confirm-modal'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'rails-i18n'
 gem 'devise-i18n'

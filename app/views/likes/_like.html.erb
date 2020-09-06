@@ -1,0 +1,19 @@
+<li class="post_action_btn" id="like-btn-<%= post.id %>">
+
+<% if user_signed_in? && post.liked_by?(current_user) %>
+<% like = Like.find_by(user_id: current_user.id, post_id: post.id) %>
+  <%= link_to(post_like_path(post,like.id), method: :delete, remote: true, id: "like-button-#{post.id}") do %>
+    <i class="fas fa-heart post_liked"></i><span class="post_liked"><%= post.likes.count %></span>
+  <% end %>
+
+<% else %>
+
+  <%= link_to(post_likes_path(post), method: :post, remote: true, id: "like-button-#{post.id}") do %>
+    <i class="far fa-heart post_notliked"></i>
+    <% if post.likes.present? %>
+      <span><%= post.likes.count %></span>
+    <% end %>
+  <% end %>
+<% end %>
+
+</li>
