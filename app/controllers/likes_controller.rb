@@ -20,7 +20,7 @@ class LikesController < ApplicationController
     def log_in_user?
       unless user_signed_in?
         flash[:alert] = "新規登録もしくはユーザーログインを行ってください"
-        redirect_back(fallback_location: root_path)
+        redirect_to new_user_session_path
       end
     end
 
