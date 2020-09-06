@@ -29,10 +29,9 @@
                     <i class="far fa-comment-alt"></i>
                     <span><%= comments_presence?(post.comments.count) %></span>
                   </li>
-                  <li>
-                    <i class="far fa-heart"></i>
-                    <span>#</span>
-                  </li>
+
+                  <%= render 'likes/like', post: post %>
+
                 </ul>
                 <ul class="post__bottom_box__admin_actions">
                   <% if user_signed_in? && current_user.id == post.user.id %>

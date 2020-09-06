@@ -11,8 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require rails-ujs
 //= require activestorage
+//= require turbolinks
 //= require bootstrap-sprockets
 //= require data-confirm-modal
 //= require_tree .
