@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:create, :edit, :update, :destroy]
   before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit]
 
@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @post = Post.find_by(id: params[:comment][:post_id])
     if @comment.save
       redirect_to post_path(@post)
     else
