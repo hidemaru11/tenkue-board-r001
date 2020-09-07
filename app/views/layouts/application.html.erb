@@ -16,10 +16,10 @@
         <div class="<%= message_type %>"><%= message %></div>
       <% end %>
     </div>
+    <%= render 'layouts/header' %>
     <div class="wrapper">
-      <%= render 'layouts/header' %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
