@@ -1,5 +1,5 @@
 crumb :root do
-  link '投稿一覧'.html_safe, root_path
+  link '投稿一覧', root_path
 end
 
 crumb :post_new do
