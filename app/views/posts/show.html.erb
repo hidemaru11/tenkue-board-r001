@@ -42,16 +42,18 @@
     </div>
 
     <div class="comment_area">
-      <% @post.comments.includes_user.sorted_desc.each do |comment| %>
-        <ul class="comment_area__list">
+      <ul class="comment_area__list">
+        <% @post.comments.includes_user.sorted_desc.each do |comment| %>
           <li class="comment_area__list__comment">
             <div class="comment_area__list__comment__left_box">
               <span><%= comment.user.name %></span>
             </div>
             <div class="comment_area__list__comment__right_box">
               <div class="comment_area__list__comment__right_box__info">
-                  <span>編集</span>
-                  <span>削除</span>
+                <% if user_signed_in? && comment.user == current_user %>
+                  <span><%= link_to "編集", edit_post_comment_path(id: comment.id, post_id: comment.post.id) %></span>
+                  <span><%= link_to "削除", post_comment_path(id: comment.id, post_id: comment.post.id), method: :delete, data: { confirm: "本当に削除していいですか？", cancel: "やめる", commit: "削除する" }, title: "削除確認" %></span>
+                <% end %>
                 <span>投稿日時：<%= default_time(comment.created_at) %></span>
               </div>
               <div class="comment_area__list__comment__right_box__text">
@@ -59,9 +61,9 @@
               </div>
             </div>
           </li>
-        </ul>
-      <% end %>
-      <%= render 'layouts/comment_form' %>
+        <% end %>
+      </ul>
+      <%= render 'comments/comment_form' %>
     </div>
   </div>
 </div>
