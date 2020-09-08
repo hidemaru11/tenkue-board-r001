@@ -100,7 +100,7 @@
             padding: 0 12px;
             cursor: pointer;
             & li {
-              width: 40px;
+              width: 46px;
               margin-right: 80px;
               & span {
                 font-size: $font_size_defalt;
@@ -188,8 +188,12 @@
   }
   .post_notliked {
     color: black;
+    display: inline-block;
+    margin-left: 4px;
   }
   .post_liked {
     color: $color_actioned;
+    display: inline-block;
+    margin-left: 4px;
   }
 }
