@@ -9,3 +9,7 @@ end
 crumb :post_show do |post|
   link "#{post.user.name}さんの投稿(#{post.id})"
 end
+
+crumb :post_edit do |post|
+  link "#{post.user.name}さんの投稿(#{post.id})の編集"
+end
