@@ -1,4 +1,6 @@
 <div class="post_wrapper">
+  <% breadcrumb :post_edit, @post %>
+  <%= breadcrumbs pretext: '<i class="fas fa-home"></i>'.html_safe, separator: " &nbsp;&rsaquo;&nbsp; " %>
   <div class="post_wrapper__content">
     <div class="post_wrapper__content__post_form">
       <h3>投稿編集</h3>
